@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "903690865255",
+    "firebase_url": "https://movieda-f3318.firebaseio.com",
+    "project_id": "movieda-f3318",
+    "storage_bucket": "movieda-f3318.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:903690865255:android:a9216af34c453f5bdc62c2",
+        "android_client_info": {
+          "package_name": "com.Blazebrain.movieda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "903690865255-2u7sk1u0h13o434dimcre9gv2iis8060.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.Blazebrain.movieda",
+            "certificate_hash": "99d7a9eab3eba733c4a3ab54a969e40621e2e61f"
+          }
+        },
+        {
+          "client_id": "903690865255-ndvgham8ehbq3dfaadvpajnnneqmi2ie.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwxrDt9SYKHpC6JINFSqLOz0SvJMYBpYo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "903690865255-ndvgham8ehbq3dfaadvpajnnneqmi2ie.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
