@@ -64,17 +64,38 @@ class _SearchState extends State<Search> {
               onChanged: (value) {
                 movieName = value;
               },
+              onSubmitted: (value) async {
+                controller.clear();
+                final movieData = await searchData(movieName);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return SearchResults(
+                        movieData: movieData,
+                      );
+                    },
+                  ),
+                );
+              },
             ),
           ),
           RaisedButton(
             color: Colors.blue,
             onPressed: () async {
+              controller.clear();
               final movieData = await searchData(movieName);
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return SearchResults(
-                  movieData: movieData,
-                );
-              }));
+
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return SearchResults(
+                      movieData: movieData,
+                    );
+                  },
+                ),
+              );
             },
             child: Text(
               'Get Movies',

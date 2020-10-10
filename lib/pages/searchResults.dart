@@ -23,7 +23,7 @@ class _SearchResultsState extends State<SearchResults> {
       appBar: AppBar(
         backgroundColor: Color(0xff2556D9),
         title: new Text(
-          "Search",
+          movieData['expression'],
           style: TextStyle(
             fontFamily: 'Lato',
             fontWeight: FontWeight.w900,

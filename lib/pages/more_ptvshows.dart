@@ -13,7 +13,7 @@ class _MoreTVShowsState extends State<MoreTVShows> {
   @override
   void initState() {
     super.initState();
-    csoonData();
+    tvInfos();
   }
 
   @override
@@ -44,7 +44,7 @@ class _MoreTVShowsState extends State<MoreTVShows> {
       ),
       body: ListView(
         children: [
-          More(imagelink: tvimage),
+          More(imagelink: tvImage0),
           More(imagelink: tvImage1),
           More(imagelink: tvImage2),
           More(imagelink: tvImage3),
@@ -60,7 +60,7 @@ class _MoreTVShowsState extends State<MoreTVShows> {
           More(imagelink: tvImage13),
           More(imagelink: tvImage14),
           More(imagelink: tvImage15),
-          More(imagelink: tvImage6),
+          More(imagelink: tvImage16),
           More(imagelink: tvImage17),
           More(imagelink: tvImage18),
           More(imagelink: tvImage19),

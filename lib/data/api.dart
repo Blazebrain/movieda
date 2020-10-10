@@ -1,10 +1,10 @@
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-// const api = 'k_G1t9KTc8';
-const api = 'k_Fig2Zux5';
+const api = 'k_G1t9KTc8';
+// const api = 'k_Fig2Zux5';
 
-const url = "https://imdb-api.com/en/API/Top250Movies/$api";
+const url = "https://imdb-api.com/en/API/MostPopularMovies/$api";
 
 class Api {
   Future getPfilms() async {
@@ -22,7 +22,7 @@ class Api {
   }
 }
 
-const tvurl = "https://imdb-api.com/en/API/Top250TVs/$api";
+const tvurl = "https://imdb-api.com/en/API/MostPopularTVs/$api";
 
 class TVApi {
   Future getPTV() async {
@@ -70,6 +70,24 @@ class Search {
       return searchResults;
     } else {
       throw Exception('Failed to retrieve seached movies');
+    }
+  }
+}
+
+const recommended = "https://imdb-api.com/en/API/Top250Movies/$api";
+
+class RecommendedMovies {
+  Future getRecommendedMovies() async {
+    http.Response response = await http.get(recommended);
+
+    if (response.statusCode == 200) {
+      String data = response.body;
+
+      var recommendedMovies = jsonDecode(data);
+
+      return recommendedMovies;
+    } else {
+      throw Exception('Failed to retrieve movies');
     }
   }
 }

@@ -61,31 +61,41 @@ Future getData() async {
 void filmInfo1(var option) async {
   image1 = await option['items'][0]['image'];
   title1 = await option['items'][0]['title'];
-  rating1 = await option['items'][0]['imDbRating'];
+  rating1 = await option['items'][0]['imDbRating'] != ""
+      ? await option['items'][0]['imDbRating']
+      : "0";
 }
 
 void filmInfo2(var option) async {
   image2 = await option['items'][1]['image'];
   title2 = await option['items'][1]['title'];
-  rating2 = await option['items'][1]['imDbRating'];
+  rating2 = await option['items'][1]['imDbRating'] != ""
+      ? await option['items'][1]['imDbRating']
+      : "0";
 }
 
 void filmInfo3(var option) async {
   image3 = await option['items'][2]['image'];
   title3 = await option['items'][2]['title'];
-  rating3 = await option['items'][2]['imDbRating'];
+  rating3 = await option['items'][2]['imDbRating'] != ""
+      ? await option['items'][2]['imDbRating']
+      : "0";
 }
 
 void filmInfo4(var option) async {
   image4 = await option['items'][3]['image'];
   title4 = await option['items'][3]['title'];
-  rating4 = await option['items'][3]['imDbRating'];
+  rating4 = (await option['items'][3]['imDbRating']) != ""
+      ? await option['items'][3]['imDbRating']
+      : "0";
 }
 
 void filmInfo5(var option) async {
   image5 = await option['items'][4]['image'];
   title5 = await option['items'][4]['title'];
-  rating5 = await option['items'][4]['imDbRating'];
+  rating5 = await option['items'][4]['imDbRating'] != ""
+      ? await option['items'][4]['imDbRating']
+      : "0";
 }
 
 getImage(var option) async {
@@ -153,12 +163,6 @@ String tvImage18;
 String tvImage19;
 String tvImage20;
 
-Future getTvData() async {
-  TVApi tvApi = TVApi();
-  ptvData = await tvApi.getPTV();
-  return ptvData;
-}
-
 void tvInfos() async {
   ptvDatas = await getTvData();
   tvInfo1(ptvDatas);
@@ -169,34 +173,50 @@ void tvInfos() async {
   getTVShowsImage(ptvDatas);
 }
 
+Future getTvData() async {
+  TVApi tvApi = TVApi();
+  ptvData = await tvApi.getPTV();
+  return ptvData;
+}
+
 void tvInfo1(var tvoption) async {
   tvimage1 = await tvoption['items'][0]['image'];
   tvtitle1 = await tvoption['items'][0]['title'];
-  tvrating1 = await tvoption['items'][0]['imDbRating'];
+  tvrating1 = await tvoption['items'][0]['imDbRating'] != ""
+      ? await tvoption['items'][0]['imDbRating']
+      : "0";
 }
 
 void tvInfo2(var tvoption) async {
   tvimage2 = await tvoption['items'][1]['image'];
   tvtitle2 = await tvoption['items'][1]['title'];
-  tvrating2 = await tvoption['items'][1]['imDbRating'];
+  tvrating2 = await tvoption['items'][1]['imDbRating'] != ""
+      ? await tvoption['items'][1]['imDbRating']
+      : "0";
 }
 
 void tvInfo3(var tvoption) async {
   tvimage3 = await tvoption['items'][2]['image'];
   tvtitle3 = await tvoption['items'][2]['title'];
-  tvrating3 = await tvoption['items'][2]['imDbRating'];
+  tvrating3 = await tvoption['items'][2]['imDbRating'] != ""
+      ? await tvoption['items'][2]['imDbRating']
+      : "0";
 }
 
 void tvInfo4(var tvoption) async {
   tvimage4 = await tvoption['items'][3]['image'];
   tvtitle4 = await tvoption['items'][3]['title'];
-  tvrating4 = await tvoption['items'][3]['imDbRating'];
+  tvrating4 = await tvoption['items'][3]['imDbRating'] != ""
+      ? await tvoption['items'][3]['imDbRating']
+      : "0";
 }
 
 void tvInfo5(var tvoption) async {
   tvimage5 = await tvoption['items'][4]['image'];
   tvtitle5 = await tvoption['items'][4]['title'];
-  tvrating5 = await tvoption['items'][4]['imDbRating'];
+  tvrating5 = await tvoption['items'][4]['imDbRating'] != ""
+      ? await tvoption['items'][4]['imDbRating']
+      : "0";
 }
 
 getTVShowsImage(var option) async {
@@ -273,17 +293,4 @@ Future getSearch(movieName) {
 searchData(movieName) async {
   searchDatas = await getSearch(movieName);
   return searchDatas;
-}
-
-searchOutput() {
-  List movieList = List();
-  for (int j = 0; searchDatas['results'][j] != null; j++) {
-    for (int i = 0; i <= searchDatas['results'][j]; i++) {
-      final image = searchDatas['results'][i]['image'];
-      final id = searchDatas['results'][i]['id'];
-      final title = searchDatas['results'][i]['title'];
-      final description = searchDatas['results'][i]['description'];
-      movieList.add([image, id, title, description]);
-    }
-  }
 }
