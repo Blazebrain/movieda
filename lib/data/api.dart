@@ -60,8 +60,10 @@ class Csoon {
 
 class Search {
   Future getSearchResults(movieName) async {
-    http.Response response = await http
-        .get("https://imdb-api.com/en/API/SearchMovie/$api/$movieName");
+    http.Response response =
+        await http.get("https://imdb-api.com/en/API/SearchAll/$api/$movieName");
+
+    // https://imdb-api.com/en/API/SearchMovie/$api/$movieName
     if (response.statusCode == 200) {
       String datase = response.body;
 

@@ -3,7 +3,6 @@ import 'package:movieda/data/global.dart';
 import 'package:movieda/widgets/bottomAppBarr.dart';
 import 'package:movieda/widgets/floatingActionButton.dart';
 import 'package:movieda/widgets/more.dart';
-import 'package:movieda/widgets/star.dart';
 
 class Recommended extends StatefulWidget {
   @override

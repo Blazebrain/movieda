@@ -22,7 +22,8 @@ class _MoreTVShowsState extends State<MoreTVShows> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: buildAppBar(photoUrl: widget.photoUrl, title: "Popular TV Shows"),
+      appBar:
+          buildAppBar(photoUrl: widget.photoUrl, title1: "Popular TV Shows"),
       body: ListView(
         children: [
           More(imagelink: tvImage0),

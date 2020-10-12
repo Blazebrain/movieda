@@ -51,7 +51,7 @@ class More extends StatelessWidget {
           // ),
           Expanded(
             child: Container(
-              height: 200,
+              height: 250,
               width: MediaQuery.of(context).size.width,
               decoration: BoxDecoration(
                 image: DecorationImage(

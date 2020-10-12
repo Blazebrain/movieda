@@ -23,7 +23,10 @@ class _MoreMoviesState extends State<MoreMovies> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: buildAppBar(photoUrl: widget.photoUrl, title: "Popular Movies"),
+      appBar: buildAppBar(
+        photoUrl: widget.photoUrl,
+        title1: "Popular Movies",
+      ),
       body: ListView(
         children: [
           More(imagelink: filmImage0),

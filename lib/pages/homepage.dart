@@ -74,6 +74,7 @@ class _MovieAppState extends State<MovieApp> {
                         onPress: () => Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
                           return TvScreen(
+                            nickName: widget.nickName,
                             photoUrl: widget.photUrl,
                           );
                         })),
@@ -213,7 +214,11 @@ class _MovieAppState extends State<MovieApp> {
         icon: Icons.search,
         onPress: () => Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => Search()),
+          MaterialPageRoute(
+              builder: (context) => Search(
+                    title: "Search Movies",
+                    photoUrl: widget.photUrl,
+                  )),
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,

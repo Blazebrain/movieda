@@ -10,7 +10,9 @@ class LoadingScreen extends StatefulWidget {
 }
 
 class _LoadingScreenState extends State<LoadingScreen> {
+  // ignore: unused_field
   bool _initialized = false;
+  // ignore: unused_field
   bool _error = false;
   @override
   void initState() {

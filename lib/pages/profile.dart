@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movieda/pages/more_pfilms.dart';
+import 'package:movieda/pages/search.dart';
 import 'package:movieda/pages/top_250films.dart';
 import 'package:movieda/widgets/bottomAppBarr.dart';
 import 'package:movieda/widgets/floatingActionButton.dart';
@@ -202,7 +203,7 @@ class _ProfileState extends State<Profile> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) {
-                                  return MoreMovies();
+                                  return MoreMovies(photoUrl: widget.photoUrl);
                                 },
                               ),
                             );
@@ -344,7 +345,13 @@ class _ProfileState extends State<Profile> {
       ),
       floatingActionButton: FloatingActionButtonn(
         icon: Icons.search,
-        onPress: null,
+        onPress: () =>
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return Search(
+            title: "Search",
+            photoUrl: widget.photoUrl,
+          );
+        })),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
     );

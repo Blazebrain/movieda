@@ -395,12 +395,15 @@ getRecomImage(var option) async {
   recomImage20 = await option['items'][20]['image'];
 }
 
-AppBar buildAppBar({String photoUrl, String title}) {
+AppBar buildAppBar({
+  String photoUrl,
+  String title1,
+}) {
   return AppBar(
-    toolbarHeight: 54,
+    toolbarHeight: 52,
     backgroundColor: Color(0xff2556D9),
-    title: new Text(
-      title,
+    title: Text(
+      title1,
       style: TextStyle(
         fontFamily: 'Lato',
         fontWeight: FontWeight.w900,
@@ -408,16 +411,90 @@ AppBar buildAppBar({String photoUrl, String title}) {
     ),
     actions: <Widget>[
       CircleAvatar(
-        radius: 30,
+        radius: 25,
         backgroundImage: NetworkImage(photoUrl),
       ),
       IconButton(
-          icon: Icon(
-            Icons.more_vert,
-            size: 20,
-            color: Colors.white,
-          ),
-          onPressed: null)
+        icon: Icon(
+          Icons.more_vert,
+          size: 20,
+          color: Colors.white,
+        ),
+        onPressed: null,
+      ),
     ],
   );
 }
+
+// SharedPreferences prefs;
+// GoogleSignIn googleSignIn = GoogleSignIn();
+
+// Future<Null> handleSignOut() async {
+//   prefs = await SharedPreferences.getInstance();
+//   await FirebaseAuth.instance.signOut();
+//   if (await googleSignIn.isSignedIn() == true) {
+//     await googleSignIn.disconnect();
+//     await googleSignIn.signOut();
+//   }
+
+//   await prefs.clear();
+
+//   Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) {
+//     return WelcomeScreen();
+//   }), (route) => false);
+// }
+
+// itemMenuPress({Choice choice}) {
+//   if (choice.title == 'Log out') {
+//     print('started work');
+//     handleSignOut();
+//   } else if (choice.title == 'Settings') {
+//     Navigator.push(
+//       context,
+//       MaterialPageRoute(
+//         builder: (context) {
+//           return WelcomeScreen();
+//         },
+//       ),
+//     );
+//   }
+// }
+
+// List<Choice> choices = <Choice>[
+//   Choice(title: 'Log out', icon: Icons.exit_to_app),
+//   Choice(title: 'Settings', icon: Icons.settings)
+// ];
+
+// class Choice {
+//   Choice({this.icon, this.title});
+//   final String title;
+//   final IconData icon;
+// }
+// action[
+//    PopupMenuButton<Choice>(
+//           onSelected: itemMenuPress(navigate1: navigate1, navigate2: navigate2),
+//           itemBuilder: (context) {
+//             return choices
+//                 .map(
+//                   (Choice choice) => PopupMenuItem<Choice>(
+//                     value: choice,
+//                     child: Row(
+//                       children: [
+//                         Icon(
+//                           choice.icon,
+//                           color: Colors.black,
+//                         ),
+//                         Container(
+//                           width: 10.0,
+//                         ),
+//                         Text(
+//                           choice.title,
+//                           style: TextStyle(color: Colors.black),
+//                         ),
+//                       ],
+//                     ),
+//                   ),
+//                 )
+//                 .toList();
+//           }),
+// ]

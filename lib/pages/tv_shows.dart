@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+
 import 'package:movieda/pages/profile.dart';
+import 'package:movieda/pages/search.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/global.dart';
@@ -14,8 +16,10 @@ import 'more_ptvshows.dart';
 
 class TvScreen extends StatefulWidget {
   final String photoUrl;
+  final String nickName;
 
-  const TvScreen({Key key, this.photoUrl}) : super(key: key);
+  const TvScreen({Key key, this.photoUrl, @required this.nickName})
+      : super(key: key);
   @override
   _TvScreenState createState() => _TvScreenState();
 }
@@ -195,14 +199,23 @@ class _TvScreenState extends State<TvScreen> {
         onPressProfile: () => Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => Profile(),
+            builder: (context) => Profile(
+              photoUrl: widget.photoUrl,
+              nickName: widget.nickName,
+            ),
           ),
         ),
         onPressCredit: null,
       ),
       floatingActionButton: FloatingActionButtonn(
         icon: Icons.search,
-        onPress: null,
+        onPress: () =>
+            Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return Search(
+            title: "Search TV Shows",
+            photoUrl: widget.photoUrl,
+          );
+        })),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
     );
