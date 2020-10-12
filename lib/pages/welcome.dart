@@ -2,6 +2,15 @@ import 'package:flutter/material.dart';
 import '../authentication/googleauth.dart';
 
 class WelcomeScreen extends StatelessWidget {
+// void  isSignedIn() async{
+//     GoogleSignIn signIn = GoogleSignIn();
+//     if(await signIn.isSignedIn() == true){
+//         Navigator.push(context, MaterialPageRoute(builder: (context){
+//           return MovieApp(nickName: "back",);
+//         }))
+//     }
+//   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

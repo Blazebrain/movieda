@@ -14,21 +14,14 @@ import 'tv_shows.dart';
 
 class MovieApp extends StatefulWidget {
   final String nickName;
-
-  const MovieApp({Key key, this.nickName}) : super(key: key);
+  final photUrl;
+  const MovieApp({Key key, this.nickName, this.photUrl}) : super(key: key);
   @override
   _MovieAppState createState() => _MovieAppState();
 }
 
 class _MovieAppState extends State<MovieApp> {
   SharedPreferences prefs;
-
-  @override
-  void initState() {
-    super.initState();
-    filmInfos();
-    csoonData();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -80,9 +73,7 @@ class _MovieAppState extends State<MovieApp> {
                         icon: Icons.tv,
                         onPress: () => Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return TvScreen(
-                            nickName: widget.nickName,
-                          );
+                          return TvScreen();
                         })),
                       )
                     ],
@@ -160,27 +151,27 @@ class _MovieAppState extends State<MovieApp> {
                       scrollDirection: Axis.horizontal,
                       children: <Widget>[
                         MyPFilms(
-                          image: image1,
+                          image: filmImage0,
                           title: title1,
                           rating: rating1,
                         ),
                         MyPFilms(
-                          image: image2,
+                          image: filmImage1,
                           title: title2,
                           rating: rating2,
                         ),
                         MyPFilms(
-                          image: image3,
+                          image: filmImage2,
                           title: title3,
                           rating: rating3,
                         ),
                         MyPFilms(
-                          image: image4,
+                          image: filmImage4,
                           title: title4,
                           rating: rating4,
                         ),
                         MyPFilms(
-                          image: image5,
+                          image: filmImage5,
                           title: title5,
                           rating: rating5,
                         ),
@@ -206,7 +197,10 @@ class _MovieAppState extends State<MovieApp> {
         onPressProfile: () => Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (context) => Profile(),
+            builder: (context) => Profile(
+              nickName: widget.nickName,
+              photoUrl: widget.photUrl,
+            ),
           ),
         ),
         onPressCredit: null,

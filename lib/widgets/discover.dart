@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movieda/widgets/comingSoon.dart';
 
 class Discover extends StatelessWidget {
   final movieImage;
@@ -30,52 +31,10 @@ class Discover extends StatelessWidget {
               ),
             ),
           ),
-          GestureDetector(
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(20),
-                  topRight: Radius.circular(20),
-                ),
-                image: DecorationImage(
-                  image: NetworkImage(movieImage),
-                  fit: BoxFit.fill,
-                ),
-              ),
-              height: MediaQuery.of(context).size.height / 2,
-              width: double.infinity,
-              padding: EdgeInsets.only(top: 40, left: 15),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    movietitle,
-                    style: TextStyle(
-                      fontFamily: 'RobotoSlab',
-                      color: Colors.grey[200],
-                      fontSize: 20,
-                    ),
-                  ),
-                  Text(
-                    "COMING SOON!!! ",
-                    style: TextStyle(
-                      fontFamily: 'RobotoSlab',
-                      color: Colors.blueGrey[200],
-                      fontSize: 16,
-                    ),
-                  ),
-                  Text(
-                    movieReleaseDate,
-                    style: TextStyle(
-                      fontFamily: 'RobotoSlab',
-                      color: Colors.blueGrey[200],
-                      fontSize: 16,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
+          ComingSoon(
+              movieImage: movieImage,
+              movietitle: movietitle,
+              movieReleaseDate: movieReleaseDate),
         ],
       ),
     );

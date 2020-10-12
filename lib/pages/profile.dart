@@ -1,16 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:movieda/pages/more_pfilms.dart';
 import 'package:movieda/pages/top_250films.dart';
 import 'package:movieda/widgets/bottomAppBarr.dart';
 import 'package:movieda/widgets/floatingActionButton.dart';
+import 'package:movieda/widgets/genreButtons.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../widgets/pfilms.dart';
 import 'package:movieda/data/global.dart';
 
 class Profile extends StatefulWidget {
+  final nickName;
+  final photoUrl;
+  const Profile({Key key, this.nickName, this.photoUrl}) : super(key: key);
+
   @override
   _ProfileState createState() => _ProfileState();
 }
 
 class _ProfileState extends State<Profile> {
+  SharedPreferences prefs;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -119,7 +127,7 @@ class _ProfileState extends State<Profile> {
                       Container(
                         margin: EdgeInsets.only(top: 30),
                         child: Text(
-                          "Adegoke David",
+                          widget.nickName,
                           style: TextStyle(
                             fontFamily: 'RobotoSlab',
                             fontSize: 20,
@@ -135,7 +143,9 @@ class _ProfileState extends State<Profile> {
                           backgroundColor: Color(0xff5E82E3),
                           child: CircleAvatar(
                             radius: 50,
-                            backgroundImage: AssetImage('images/passport.jpg'),
+                            backgroundImage: NetworkImage(
+                              widget.photoUrl,
+                            ),
                           ),
                         ),
                       ),
@@ -145,91 +155,20 @@ class _ProfileState extends State<Profile> {
                         child: ListView(
                           scrollDirection: Axis.horizontal,
                           children: <Widget>[
-                            FlatButton(
-                              focusColor: Color(0xff233C78),
-                              color: Colors.yellow,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(10),
-                                ),
-                              ),
-                              onPressed: null,
-                              child: Text(
-                                "Action",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.white,
-                                  fontFamily: 'RobotoSlab',
-                                ),
-                              ),
+                            GenreButtons(
+                              title: 'Action',
                             ),
-                            FlatButton(
-                              focusColor: Color(0xff233C78),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(10),
-                                ),
-                              ),
-                              onPressed: null,
-                              child: Text(
-                                "Comedy",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.white,
-                                  fontFamily: 'RobotoSlab',
-                                ),
-                              ),
+                            GenreButtons(
+                              title: 'Comedy',
                             ),
-                            FlatButton(
-                              focusColor: Color(0xff233C78),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(10),
-                                ),
-                              ),
-                              onPressed: null,
-                              child: Text(
-                                "Drama",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.white,
-                                  fontFamily: 'RobotoSlab',
-                                ),
-                              ),
+                            GenreButtons(
+                              title: 'Drama',
                             ),
-                            FlatButton(
-                              focusColor: Color(0xff233C78),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(10),
-                                ),
-                              ),
-                              onPressed: null,
-                              child: Text(
-                                "Thriller",
-                                style: TextStyle(
-                                  fontFamily: 'RobotoSlab',
-                                  fontSize: 16,
-                                  color: Colors.white,
-                                ),
-                              ),
+                            GenreButtons(
+                              title: 'Thriller',
                             ),
-                            FlatButton(
-                              focusColor: Color(0xff233C78),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(10),
-                                ),
-                              ),
-                              onPressed: null,
-                              child: Text(
-                                "Adventure",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  color: Colors.white,
-                                  fontFamily: 'RobotoSlab',
-                                ),
-                              ),
+                            GenreButtons(
+                              title: 'Adventure',
                             ),
                           ],
                         ),
@@ -257,11 +196,23 @@ class _ProfileState extends State<Profile> {
                             fontWeight: FontWeight.w500,
                           ),
                         ),
-                        Text(
-                          "see more",
-                          style: TextStyle(
-                            color: Color(0xff8E8E8E),
-                            fontFamily: 'RobotoSlab',
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return MoreMovies();
+                                },
+                              ),
+                            );
+                          },
+                          child: Text(
+                            "see more",
+                            style: TextStyle(
+                              color: Color(0xff8E8E8E),
+                              fontFamily: 'RobotoSlab',
+                            ),
                           ),
                         ),
                       ],
@@ -273,27 +224,27 @@ class _ProfileState extends State<Profile> {
                       scrollDirection: Axis.horizontal,
                       children: <Widget>[
                         MyPFilms(
-                          image: image1,
+                          image: filmImage0,
                           title: title1,
                           rating: rating1,
                         ),
                         MyPFilms(
-                          image: image2,
+                          image: filmImage1,
                           title: title2,
                           rating: rating2,
                         ),
                         MyPFilms(
-                          image: image3,
+                          image: filmImage2,
                           title: title3,
                           rating: rating3,
                         ),
                         MyPFilms(
-                          image: image4,
+                          image: filmImage3,
                           title: title4,
                           rating: rating4,
                         ),
                         MyPFilms(
-                          image: image5,
+                          image: filmImage4,
                           title: title5,
                           rating: rating5,
                         ),
@@ -345,41 +296,38 @@ class _ProfileState extends State<Profile> {
                     ),
                   ),
                   Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20),
-                      ),
-                      image: DecorationImage(
-                        image: AssetImage('images/peninsula.jpg'),
-                        fit: BoxFit.fill,
-                      ),
-                    ),
                     height: 220,
-                    width: double.infinity,
-                    padding: EdgeInsets.only(top: 40, left: 15),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
                       children: <Widget>[
-                        Text(
-                          "PENINSULA",
-                          style: TextStyle(
-                            fontFamily: 'RobotoSlab',
-                            color: Colors.grey[200],
-                            fontSize: 20,
-                          ),
+                        MyPFilms(
+                          image: recomImage1,
+                          title: recomTitle1,
+                          rating: recomRating1,
                         ),
-                        Text(
-                          "COMING SOON!!!",
-                          style: TextStyle(
-                            fontFamily: 'RobotoSlab',
-                            color: Colors.blueGrey[200],
-                            fontSize: 16,
-                          ),
+                        MyPFilms(
+                          image: recomImage2,
+                          title: recomTitle2,
+                          rating: recomRating2,
+                        ),
+                        MyPFilms(
+                          image: recomImage3,
+                          title: recomTitle3,
+                          rating: recomRating3,
+                        ),
+                        MyPFilms(
+                          image: recomImage4,
+                          title: recomTitle4,
+                          rating: recomRating4,
+                        ),
+                        MyPFilms(
+                          image: recomImage5,
+                          title: recomTitle5,
+                          rating: recomRating5,
                         ),
                       ],
                     ),
-                  ),
+                  )
                 ],
               ),
             ),

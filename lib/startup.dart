@@ -15,10 +15,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   void initState() {
     super.initState();
-
     onlyloadif();
-    filmInfos();
-    tvInfos();
   }
 
   // Define an async function to initialize FlutterFire
@@ -42,6 +39,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     await tvInfos();
     await filmInfos();
     await csoonData();
+    await recomData();
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -74,6 +72,15 @@ class _LoadingScreenState extends State<LoadingScreen> {
     csoonDatas = await getCSoon();
     getCsoonImage1(csoonDatas);
     getCsoonImage2(csoonDatas);
+  }
+
+  Future<void> recomData() async {
+    recomDatas = await getRecom();
+    getrecomImage1(recomDatas);
+    getrecomImage2(recomDatas);
+    getrecomImage3(recomDatas);
+    getrecomImage4(recomDatas);
+    getrecomImage5(recomDatas);
   }
 
   @override

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movieda/pages/profile.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/global.dart';
 import '../widgets/bottomAppBarr.dart';
@@ -20,11 +21,9 @@ class TvScreen extends StatefulWidget {
 }
 
 class _TvScreenState extends State<TvScreen> {
-  @override
-  void initState() {
-    super.initState();
-    tvInfos();
-  }
+  SharedPreferences prefs;
+
+  var username;
 
   @override
   Widget build(BuildContext context) {
@@ -150,27 +149,27 @@ class _TvScreenState extends State<TvScreen> {
                       scrollDirection: Axis.horizontal,
                       children: <Widget>[
                         MyPMovies(
-                          image: tvimage1,
+                          image: tvImage0,
                           title: tvtitle1,
                           rating: tvrating1,
                         ),
                         MyPMovies(
-                          image: tvimage2,
+                          image: tvImage1,
                           title: tvtitle2,
                           rating: tvrating2,
                         ),
                         MyPMovies(
-                          image: tvimage3,
+                          image: tvImage2,
                           title: tvtitle3,
                           rating: tvrating3,
                         ),
                         MyPMovies(
-                          image: tvimage4,
+                          image: tvImage3,
                           title: tvtitle4,
                           rating: tvrating4,
                         ),
                         MyPMovies(
-                          image: tvimage5,
+                          image: tvImage4,
                           title: tvtitle5,
                           rating: tvrating5,
                         ),

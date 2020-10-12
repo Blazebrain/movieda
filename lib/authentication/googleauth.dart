@@ -76,6 +76,7 @@ class _GoogleLoginHandlerState extends State<GoogleLoginHandler> {
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return MovieApp(
           nickName: prefs.getString('nickName'),
+          photUrl: prefs.getString('photoUrl'),
         );
       }));
     } else {

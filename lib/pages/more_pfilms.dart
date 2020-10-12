@@ -61,7 +61,7 @@ class _MoreMoviesState extends State<MoreMovies> {
           More(imagelink: filmImage13),
           More(imagelink: filmImage14),
           More(imagelink: filmImage15),
-          More(imagelink: filmImage6),
+          More(imagelink: filmImage16),
           More(imagelink: filmImage17),
           More(imagelink: filmImage18),
           More(imagelink: filmImage19),

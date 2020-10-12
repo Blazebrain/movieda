@@ -59,7 +59,6 @@ Future getData() async {
 }
 
 void filmInfo1(var option) async {
-  image1 = await option['items'][0]['image'];
   title1 = await option['items'][0]['title'];
   rating1 = await option['items'][0]['imDbRating'] != ""
       ? await option['items'][0]['imDbRating']
@@ -67,7 +66,6 @@ void filmInfo1(var option) async {
 }
 
 void filmInfo2(var option) async {
-  image2 = await option['items'][1]['image'];
   title2 = await option['items'][1]['title'];
   rating2 = await option['items'][1]['imDbRating'] != ""
       ? await option['items'][1]['imDbRating']
@@ -75,7 +73,6 @@ void filmInfo2(var option) async {
 }
 
 void filmInfo3(var option) async {
-  image3 = await option['items'][2]['image'];
   title3 = await option['items'][2]['title'];
   rating3 = await option['items'][2]['imDbRating'] != ""
       ? await option['items'][2]['imDbRating']
@@ -83,7 +80,6 @@ void filmInfo3(var option) async {
 }
 
 void filmInfo4(var option) async {
-  image4 = await option['items'][3]['image'];
   title4 = await option['items'][3]['title'];
   rating4 = (await option['items'][3]['imDbRating']) != ""
       ? await option['items'][3]['imDbRating']
@@ -91,7 +87,6 @@ void filmInfo4(var option) async {
 }
 
 void filmInfo5(var option) async {
-  image5 = await option['items'][4]['image'];
   title5 = await option['items'][4]['title'];
   rating5 = await option['items'][4]['imDbRating'] != ""
       ? await option['items'][4]['imDbRating']
@@ -121,7 +116,7 @@ getImage(var option) async {
   filmImage19 = await option['items'][19]['image'];
 }
 
-// CODE FOR RETRIEVING PMOVIES DATA FROM THE IMDB API WEBSITE
+//! CODE FOR RETRIEVING PMOVIES DATA FROM THE IMDB API WEBSITE
 
 var ptvData;
 var ptvDatas;
@@ -180,7 +175,6 @@ Future getTvData() async {
 }
 
 void tvInfo1(var tvoption) async {
-  tvimage1 = await tvoption['items'][0]['image'];
   tvtitle1 = await tvoption['items'][0]['title'];
   tvrating1 = await tvoption['items'][0]['imDbRating'] != ""
       ? await tvoption['items'][0]['imDbRating']
@@ -188,7 +182,6 @@ void tvInfo1(var tvoption) async {
 }
 
 void tvInfo2(var tvoption) async {
-  tvimage2 = await tvoption['items'][1]['image'];
   tvtitle2 = await tvoption['items'][1]['title'];
   tvrating2 = await tvoption['items'][1]['imDbRating'] != ""
       ? await tvoption['items'][1]['imDbRating']
@@ -196,7 +189,6 @@ void tvInfo2(var tvoption) async {
 }
 
 void tvInfo3(var tvoption) async {
-  tvimage3 = await tvoption['items'][2]['image'];
   tvtitle3 = await tvoption['items'][2]['title'];
   tvrating3 = await tvoption['items'][2]['imDbRating'] != ""
       ? await tvoption['items'][2]['imDbRating']
@@ -204,7 +196,6 @@ void tvInfo3(var tvoption) async {
 }
 
 void tvInfo4(var tvoption) async {
-  tvimage4 = await tvoption['items'][3]['image'];
   tvtitle4 = await tvoption['items'][3]['title'];
   tvrating4 = await tvoption['items'][3]['imDbRating'] != ""
       ? await tvoption['items'][3]['imDbRating']
@@ -212,7 +203,6 @@ void tvInfo4(var tvoption) async {
 }
 
 void tvInfo5(var tvoption) async {
-  tvimage5 = await tvoption['items'][4]['image'];
   tvtitle5 = await tvoption['items'][4]['title'];
   tvrating5 = await tvoption['items'][4]['imDbRating'] != ""
       ? await tvoption['items'][4]['imDbRating']
@@ -242,28 +232,30 @@ getTVShowsImage(var option) async {
   tvImage19 = await option['items'][19]['image'];
 }
 
-// CODE FOR COMING SOON MOVIES '
+//! CODE FOR COMING SOON MOVIES '
 
 var csoonDatas;
 var csoondata;
 String csoonImage1;
 String csoonImage2;
+String csoonImage3;
 String csoonTitle1;
 String csoonTitle2;
+String csoonTitle3;
 String csoonReleaseDate1;
 String csoonReleaseDate2;
+String csoonReleaseDate3;
 
 void csoonData() async {
   csoonDatas = await getCSoon();
   getCsoonImage1(csoonDatas);
   getCsoonImage2(csoonDatas);
+  getCsoonImage3(csoonDatas);
 }
 
 Future getCSoon() {
   Csoon csoon = Csoon();
-
   csoondata = csoon.getCsoon();
-
   return csoondata;
 }
 
@@ -279,7 +271,13 @@ void getCsoonImage2(var csoonoption) async {
   csoonReleaseDate2 = await csoonoption['items'][1]['releaseState'];
 }
 
-//CODE FOR SEARCHING MOVIES
+void getCsoonImage3(var csoonoption) async {
+  csoonImage3 = await csoonoption['items'][2]['image'];
+  csoonTitle3 = await csoonoption['items'][2]['title'];
+  csoonReleaseDate3 = await csoonoption['items'][2]['releaseState'];
+}
+
+//! CODE FOR SEARCHING MOVIES
 var searchdata;
 var searchDatas;
 Future getSearch(movieName) {
@@ -293,4 +291,104 @@ Future getSearch(movieName) {
 searchData(movieName) async {
   searchDatas = await getSearch(movieName);
   return searchDatas;
+}
+
+//! CODE FOR RECOMMENDED MOVIES '
+
+var recomDatas;
+var recomdata;
+String recomImage1;
+String recomImage2;
+String recomImage3;
+String recomImage4;
+String recomImage5;
+String recomImage6;
+String recomImage7;
+String recomImage8;
+String recomImage9;
+String recomImage10;
+String recomImage11;
+String recomImage12;
+String recomImage13;
+String recomImage14;
+String recomImage15;
+String recomImage16;
+String recomImage17;
+String recomImage18;
+String recomImage19;
+String recomImage20;
+String recomTitle1;
+String recomTitle2;
+String recomTitle3;
+String recomTitle4;
+String recomTitle5;
+String recomRating1;
+String recomRating2;
+String recomRating3;
+String recomRating4;
+String recomRating5;
+
+void recomData() async {
+  recomDatas = await getRecom();
+  getrecomImage1(recomDatas);
+  getrecomImage2(recomDatas);
+  getrecomImage3(recomDatas);
+  getrecomImage4(recomDatas);
+  getrecomImage5(recomDatas);
+  getRecomImage(recomDatas);
+}
+
+Future getRecom() {
+  RecommendedMovies recom = RecommendedMovies();
+  recomdata = recom.getRecommendedMovies();
+  return recomdata;
+}
+
+void getrecomImage1(var recomoption) async {
+  recomImage1 = await recomoption['items'][0]['image'];
+  recomTitle1 = await recomoption['items'][0]['title'];
+  recomRating1 = await recomoption['items'][0]['imDbRating'];
+}
+
+void getrecomImage2(var recomoption) async {
+  recomImage2 = await recomoption['items'][1]['image'];
+  recomTitle2 = await recomoption['items'][1]['title'];
+  recomRating2 = await recomoption['items'][1]['imDbRating'];
+}
+
+void getrecomImage3(var recomoption) async {
+  recomImage3 = await recomoption['items'][2]['image'];
+  recomTitle3 = await recomoption['items'][2]['title'];
+  recomRating3 = await recomoption['items'][2]['imDbRating'];
+}
+
+void getrecomImage4(var recomoption) async {
+  recomImage4 = await recomoption['items'][3]['image'];
+  recomTitle4 = await recomoption['items'][3]['title'];
+  recomRating4 = await recomoption['items'][3]['imDbRating'];
+}
+
+void getrecomImage5(var recomoption) async {
+  recomImage5 = await recomoption['items'][4]['image'];
+  recomTitle5 = await recomoption['items'][4]['title'];
+  recomRating5 = await recomoption['items'][4]['imDbRating'];
+}
+
+getRecomImage(var option) async {
+  recomImage6 = await option['items'][5]['image'];
+  recomImage7 = await option['items'][6]['image'];
+  recomImage7 = await option['items'][7]['image'];
+  recomImage8 = await option['items'][8]['image'];
+  recomImage9 = await option['items'][9]['image'];
+  recomImage10 = await option['items'][10]['image'];
+  recomImage11 = await option['items'][11]['image'];
+  recomImage12 = await option['items'][12]['image'];
+  recomImage13 = await option['items'][13]['image'];
+  recomImage14 = await option['items'][14]['image'];
+  recomImage15 = await option['items'][15]['image'];
+  recomImage16 = await option['items'][16]['image'];
+  recomImage17 = await option['items'][17]['image'];
+  recomImage18 = await option['items'][18]['image'];
+  recomImage19 = await option['items'][19]['image'];
+  recomImage20 = await option['items'][20]['image'];
 }
