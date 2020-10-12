@@ -5,6 +5,9 @@ import 'package:movieda/widgets/floatingActionButton.dart';
 import 'package:movieda/widgets/more.dart';
 
 class MoreTVShows extends StatefulWidget {
+  final photoUrl;
+
+  const MoreTVShows({Key key, this.photoUrl}) : super(key: key);
   @override
   _MoreTVShowsState createState() => new _MoreTVShowsState();
 }
@@ -19,29 +22,7 @@ class _MoreTVShowsState extends State<MoreTVShows> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-        backgroundColor: Color(0xff2556D9),
-        title: new Text(
-          "Popular TV Shows",
-          style: TextStyle(
-            fontFamily: 'Lato',
-            fontWeight: FontWeight.w900,
-          ),
-        ),
-        actions: <Widget>[
-          CircleAvatar(
-            radius: 20,
-            child: Text('AD'),
-          ),
-          IconButton(
-              icon: Icon(
-                Icons.more_vert,
-                size: 20,
-                color: Colors.white,
-              ),
-              onPressed: null)
-        ],
-      ),
+      appBar: buildAppBar(photoUrl: widget.photoUrl, title: "Popular TV Shows"),
       body: ListView(
         children: [
           More(imagelink: tvImage0),

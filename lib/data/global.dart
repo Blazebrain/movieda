@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:movieda/data/api.dart';
 
 var filmsData;
@@ -211,6 +212,7 @@ void tvInfo5(var tvoption) async {
 
 getTVShowsImage(var option) async {
   tvImage0 = await option['items'][0]['image'];
+  print(tvImage0);
   tvImage1 = await option['items'][1]['image'];
   tvImage2 = await option['items'][2]['image'];
   tvImage3 = await option['items'][3]['image'];
@@ -391,4 +393,31 @@ getRecomImage(var option) async {
   recomImage18 = await option['items'][18]['image'];
   recomImage19 = await option['items'][19]['image'];
   recomImage20 = await option['items'][20]['image'];
+}
+
+AppBar buildAppBar({String photoUrl, String title}) {
+  return AppBar(
+    toolbarHeight: 54,
+    backgroundColor: Color(0xff2556D9),
+    title: new Text(
+      title,
+      style: TextStyle(
+        fontFamily: 'Lato',
+        fontWeight: FontWeight.w900,
+      ),
+    ),
+    actions: <Widget>[
+      CircleAvatar(
+        radius: 30,
+        backgroundImage: NetworkImage(photoUrl),
+      ),
+      IconButton(
+          icon: Icon(
+            Icons.more_vert,
+            size: 20,
+            color: Colors.white,
+          ),
+          onPressed: null)
+    ],
+  );
 }

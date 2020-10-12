@@ -73,7 +73,9 @@ class _MovieAppState extends State<MovieApp> {
                         icon: Icons.tv,
                         onPress: () => Navigator.push(context,
                             MaterialPageRoute(builder: (context) {
-                          return TvScreen();
+                          return TvScreen(
+                            photoUrl: widget.photUrl,
+                          );
                         })),
                       )
                     ],
@@ -129,7 +131,9 @@ class _MovieAppState extends State<MovieApp> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) {
-                                  return MoreMovies();
+                                  return MoreMovies(
+                                    photoUrl: widget.photUrl,
+                                  );
                                 },
                               ),
                             );

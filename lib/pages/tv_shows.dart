@@ -13,9 +13,9 @@ import 'homepage.dart';
 import 'more_ptvshows.dart';
 
 class TvScreen extends StatefulWidget {
-  final String nickName;
+  final String photoUrl;
 
-  const TvScreen({Key key, this.nickName}) : super(key: key);
+  const TvScreen({Key key, this.photoUrl}) : super(key: key);
   @override
   _TvScreenState createState() => _TvScreenState();
 }
@@ -129,7 +129,7 @@ class _TvScreenState extends State<TvScreen> {
                           onTap: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
-                              return MoreTVShows();
+                              return MoreTVShows(photoUrl: widget.photoUrl);
                             }));
                           },
                           child: Text(

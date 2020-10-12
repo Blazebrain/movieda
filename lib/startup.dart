@@ -57,6 +57,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     tvInfo3(ptvDatas);
     tvInfo4(ptvDatas);
     tvInfo5(ptvDatas);
+    getTVShowsImage(ptvDatas);
   }
 
   Future<void> filmInfos() async {
@@ -66,12 +67,14 @@ class _LoadingScreenState extends State<LoadingScreen> {
     filmInfo3(filmsDatas);
     filmInfo4(filmsDatas);
     filmInfo5(filmsDatas);
+    getImage(filmsDatas);
   }
 
   Future<void> csoonData() async {
     csoonDatas = await getCSoon();
     getCsoonImage1(csoonDatas);
     getCsoonImage2(csoonDatas);
+    getCsoonImage3(csoonDatas);
   }
 
   Future<void> recomData() async {
@@ -81,6 +84,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
     getrecomImage3(recomDatas);
     getrecomImage4(recomDatas);
     getrecomImage5(recomDatas);
+    getRecomImage(recomDatas);
   }
 
   @override

@@ -5,6 +5,9 @@ import 'package:movieda/widgets/floatingActionButton.dart';
 import 'package:movieda/widgets/more.dart';
 
 class MoreMovies extends StatefulWidget {
+  final photoUrl;
+
+  const MoreMovies({Key key, this.photoUrl}) : super(key: key);
   @override
   _MoreMoviesState createState() => new _MoreMoviesState();
 }
@@ -20,29 +23,7 @@ class _MoreMoviesState extends State<MoreMovies> {
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-        backgroundColor: Color(0xff2556D9),
-        title: new Text(
-          "Popular Movies",
-          style: TextStyle(
-            fontFamily: 'Lato',
-            fontWeight: FontWeight.w900,
-          ),
-        ),
-        actions: <Widget>[
-          CircleAvatar(
-            radius: 20,
-            child: Text('AD'),
-          ),
-          IconButton(
-              icon: Icon(
-                Icons.more_vert,
-                size: 20,
-                color: Colors.white,
-              ),
-              onPressed: null)
-        ],
-      ),
+      appBar: buildAppBar(photoUrl: widget.photoUrl, title: "Popular Movies"),
       body: ListView(
         children: [
           More(imagelink: filmImage0),
