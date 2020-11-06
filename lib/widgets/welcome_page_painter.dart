@@ -15,8 +15,8 @@ class WelcomePagePainter extends CustomPainter {
     final center2 = Offset(size.width - 100, 90);
     final semicircleCenter1 = Offset(size.width - 30, 290);
     final semicircleCenter2 = Offset(size.width - 30, 240);
-    final semicircleCenter3 = Offset(30, 459);
-    final semicircleCenter4 = Offset(30, 444);
+    final semicircleCenter3 = Offset(30, 419);
+    final semicircleCenter4 = Offset(30, 404);
     final semicircleCenter5 = Offset(size.width, 590);
     final p1 = Offset(30, 240);
     final p2 = Offset(30, size.height);
@@ -54,7 +54,7 @@ class WelcomePagePainter extends CustomPainter {
       Rect.fromCenter(
         center: semicircleCenter3,
         height: 200,
-        width: 250,
+        width: 200,
       ),
       degToRad(270),
       degToRad(180),
