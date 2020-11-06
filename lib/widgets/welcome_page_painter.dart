@@ -22,7 +22,9 @@ class WelcomePagePainter extends CustomPainter {
     final p2 = Offset(30, size.height);
     final p3 = Offset(size.width - 30, 0);
     final p4 = Offset(size.width - 30, size.height - 200);
-
+    final p5 = Offset(size.width / 2, 240);
+    final p6 = Offset(size.width / 2, 400);
+    canvas.drawLine(p5, p6, paint1);
     canvas.drawCircle(center, 120, paint);
     canvas.drawCircle(center1, 6, paint1);
     canvas.drawCircle(center2, 25, paint1);
