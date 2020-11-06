@@ -71,7 +71,8 @@ class _SearchState extends State<Search> {
               ),
             ),
             RaisedButton(
-              color: Colors.blue,
+              color: Color(0xff45376A),
+              // Colors.blue,
               onPressed: () async {
                 setState(() {
                   _loading = true;

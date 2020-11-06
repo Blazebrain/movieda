@@ -34,7 +34,8 @@ class _MovieAppState extends State<MovieApp> {
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(50),
                 ),
-                color: Color(0xff2556D9),
+                color: Color(0xff45376A),
+                // Color(0xff2556D9),
               ),
               height: 220,
               width: double.infinity,
@@ -68,7 +69,9 @@ class _MovieAppState extends State<MovieApp> {
                         width: 10,
                       ),
                       MoviesOrTvShows(
-                        color: Color(0xff789DFB),
+                        color: Colors.lightBlueAccent,
+                        // Color(0xff9BBCC6),
+                        // Color(0xff789DFB),
                         title: 'TV Shows',
                         icon: Icons.tv,
                         onPress: () => Navigator.push(context,
@@ -195,7 +198,8 @@ class _MovieAppState extends State<MovieApp> {
         ),
       ),
       bottomNavigationBar: BottomAppBarr(
-        colorHome: Color(0xff2556D9),
+        colorHome: Color(0xff45376A),
+        // Color(0xff2556D9),
         colorCredit: null,
         colorProfile: null,
         onPressHome: null,

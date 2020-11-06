@@ -21,7 +21,8 @@ class _SearchResultsState extends State<SearchResults> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xff2556D9),
+        backgroundColor: Color(0xff45376A),
+        // Color(0xff2556D9),
         title: new Text(
           movieData['expression'],
           style: TextStyle(

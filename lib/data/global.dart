@@ -401,7 +401,8 @@ AppBar buildAppBar({
 }) {
   return AppBar(
     toolbarHeight: 52,
-    backgroundColor: Color(0xff2556D9),
+    backgroundColor: Color(0xff45376A),
+    // Color(0xff2556D9),
     title: Text(
       title1,
       style: TextStyle(

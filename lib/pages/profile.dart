@@ -117,7 +117,8 @@ class _ProfileState extends State<Profile> {
                     borderRadius: BorderRadius.only(
                       bottomLeft: Radius.circular(50),
                     ),
-                    color: Color(0xff2556D9),
+                    color: Color(0xff45376A),
+                    // Color(0xff2556D9),
                   ),
                   height: 250,
                   width: double.infinity,
@@ -139,9 +140,11 @@ class _ProfileState extends State<Profile> {
                       ),
                       CircleAvatar(
                         radius: 75,
+                        backgroundColor: Colors.lightBlueAccent,
                         child: CircleAvatar(
                           radius: 58,
-                          backgroundColor: Color(0xff5E82E3),
+                          backgroundColor: Colors.lightBlue,
+                          // Color(0xff5E82E3),
                           child: CircleAvatar(
                             radius: 50,
                             backgroundImage: NetworkImage(
@@ -336,7 +339,8 @@ class _ProfileState extends State<Profile> {
         ),
       ),
       bottomNavigationBar: BottomAppBarr(
-        colorProfile: Color(0xff2556D9),
+        colorProfile: Color(0xff45376A),
+        // Color(0xff2556D9),
         colorCredit: null,
         colorHome: null,
         onPressHome: () => Navigator.pop(context),

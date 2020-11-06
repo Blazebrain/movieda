@@ -40,7 +40,8 @@ class _TvScreenState extends State<TvScreen> {
                 borderRadius: BorderRadius.only(
                   bottomLeft: Radius.circular(50),
                 ),
-                color: Color(0xff2556D9),
+                color: Color(0xff45376A),
+                //  Color(0xff2556D9),
               ),
               height: 220,
               width: double.infinity,
@@ -65,7 +66,8 @@ class _TvScreenState extends State<TvScreen> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: <Widget>[
                       MoviesOrTvShows(
-                        color: Color(0xff789DFB),
+                        color: Colors.lightBlueAccent,
+                        //  Color(0xff789DFB),
                         title: 'Movies',
                         icon: Icons.theaters,
                         onPress: () => Navigator.pop(context,
@@ -192,7 +194,8 @@ class _TvScreenState extends State<TvScreen> {
         ),
       ),
       bottomNavigationBar: BottomAppBarr(
-        colorHome: Color(0xff2556D9),
+        colorHome: Color(0xff45376A),
+        //  Color(0xff2556D9),
         colorCredit: null,
         colorProfile: null,
         onPressHome: () => Navigator.pop(context),

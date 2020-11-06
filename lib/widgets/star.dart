@@ -24,6 +24,7 @@ class _StarState extends State<Star> {
   @override
   Widget build(BuildContext context) {
     return SmoothStarRating(
+      color: Color(0xff45376A),
       rating: getRating(),
       isReadOnly: true,
       size: 15,
