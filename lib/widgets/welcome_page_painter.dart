@@ -24,62 +24,43 @@ class WelcomePagePainter extends CustomPainter {
     final p4 = Offset(size.width - 30, size.height - 200);
     final p5 = Offset(size.width / 2, 240);
     final p6 = Offset(size.width / 2, 400);
-    canvas.drawLine(p5, p6, paint1);
+
     canvas.drawCircle(center, 120, paint);
     canvas.drawCircle(center1, 6, paint1);
     canvas.drawCircle(center2, 25, paint1);
     canvas.drawLine(p1, p2, paint1);
     canvas.drawLine(p3, p4, paint1);
+    canvas.drawLine(p5, p6, paint1);
     canvas.drawArc(
-      Rect.fromCenter(
-        center: semicircleCenter1,
-        height: 200,
-        width: 150,
-      ),
+      Rect.fromCenter(center: semicircleCenter1, height: 200, width: 150),
       degToRad(90),
       degToRad(180),
       false,
       paint1,
     );
     canvas.drawArc(
-      Rect.fromCenter(
-        center: semicircleCenter2,
-        height: 200,
-        width: 150,
-      ),
+      Rect.fromCenter(center: semicircleCenter2, height: 200, width: 150),
       degToRad(270),
       degToRad(180),
       false,
       paint1,
     );
     canvas.drawArc(
-      Rect.fromCenter(
-        center: semicircleCenter3,
-        height: 200,
-        width: 200,
-      ),
+      Rect.fromCenter(center: semicircleCenter3, height: 200, width: 200),
       degToRad(270),
       degToRad(180),
       false,
       paint2,
     );
     canvas.drawArc(
-      Rect.fromCenter(
-        center: semicircleCenter4,
-        height: 230,
-        width: 150,
-      ),
+      Rect.fromCenter(center: semicircleCenter4, height: 230, width: 150),
       degToRad(90),
       degToRad(180),
       false,
       paint2,
     );
     canvas.drawArc(
-      Rect.fromCenter(
-        center: semicircleCenter5,
-        height: 50,
-        width: 50,
-      ),
+      Rect.fromCenter(center: semicircleCenter5, height: 50, width: 50),
       degToRad(90),
       degToRad(180),
       false,
