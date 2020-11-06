@@ -91,25 +91,39 @@ class _LoadingScreenState extends State<LoadingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return new SplashScreen(
-      seconds: 15,
-      loaderColor: Color(0xff2556D9),
-      loadingText: Text('B L A Z E B R A I N'),
-      backgroundColor: Colors.white,
-      photoSize: 100,
-      styleTextUnderTheLoader: TextStyle(
-        fontSize: 25,
-        fontWeight: FontWeight.bold,
-        color: Color(0xff2556D9),
-      ),
-      image: Image.asset('images/imagebg5.jpeg'),
-      title: Text(
-        'MOVIEDA',
-        style: TextStyle(
-          fontSize: 50,
+    return Scaffold(
+      body: new SplashScreen(
+        seconds: 15,
+        loaderColor: Colors.white,
+        // Color(0xff2556D9),
+        loadingText: Text(
+          'B L A Z E B R A I N',
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+            // Color(0xff2556D9),
+          ),
+        ),
+        backgroundColor: Color(0xff45376A),
+        // Colors.white,
+        photoSize: 100,
+        styleTextUnderTheLoader: TextStyle(
+          fontSize: 25,
           fontWeight: FontWeight.bold,
-          color: Color(0xff2556D9),
-          letterSpacing: 1.5,
+          color: Colors.white,
+          // Color(0xff2556D9),
+        ),
+        image: Image.asset('images/imagebg5.jpeg'),
+        title: Text(
+          'MOVIEDA',
+          style: TextStyle(
+            fontSize: 50,
+            fontWeight: FontWeight.bold,
+            color: Colors.white,
+            // Color(0xff2556D9),
+            letterSpacing: 1.5,
+          ),
         ),
       ),
     );
