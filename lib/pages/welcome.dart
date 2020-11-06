@@ -89,7 +89,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         ),
                       ),
                       SizedBox(
-                        height: 60,
+                        height: 120,
                       ),
                       LoginOptionsButton(
                         onTapped: () =>
@@ -195,54 +195,63 @@ class LoginOptionsButton extends StatelessWidget {
     return GestureDetector(
       onTap: onTapped,
       child: Container(
-        padding: EdgeInsets.zero,
-        decoration: BoxDecoration(
+          height: 50,
+          padding: EdgeInsets.symmetric(horizontal: 8),
+          decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30),
             border: Border.all(
               color: Colors.white,
-            )),
-        child: ListTile(
-          // contentPadding: EdgeInsets.zero,
-          leading: imageLocation != null
-              ? Image(
-                  image: AssetImage(imageLocation),
-                  height: 35,
-                )
-              : SizedBox(
-                  width: 35,
-                ),
-          title: Text(
-            loginOption,
-            style: GoogleFonts.quicksand(
-              fontSize: 16,
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
             ),
+            color: Color(0xff45376A),
           ),
-        ),
-      ),
+          child: Row(
+            // mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              imageLocation != null
+                  ? Image.asset(
+                      imageLocation,
+                      height: 35,
+                    )
+                  : SizedBox(
+                      width: 35,
+                    ),
+              SizedBox(
+                width: 60,
+              ),
+              Center(
+                child: Text(
+                  loginOption,
+                  style: GoogleFonts.quicksand(
+                    fontSize: 16,
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ],
+          )
+
+          //  ListTile(
+
+          //   // contentPadding: EdgeInsets.zero,
+          //   leading: imageLocation != null
+          //       ? Image(
+          //           image: AssetImage(imageLocation),
+          //           height: 35,
+          //         )
+          //       : SizedBox(
+          //           width: 35,
+          //         ),
+          //   title: Text(
+          //     loginOption,
+          //     style: GoogleFonts.quicksand(
+          //       fontSize: 16,
+          //       color: Colors.white,
+          //       fontWeight: FontWeight.bold,
+          //     ),
+          //   ),
+          // ),
+          ),
     );
   }
 }
-
-// Row(
-//             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-//             children: [
-//               imageLocation != null
-//                   ? Image.asset(
-//                       imageLocation,
-//                       height: 35,
-//                     )
-//                   : SizedBox(
-//                       width: 35,
-//                     ),
-//               Text(
-//                 loginOption,
-//                 style: GoogleFonts.quicksand(
-//                   fontSize: 16,
-//                   color: Colors.white,
-//                   fontWeight: FontWeight.bold,
-//                 ),
-//               ),
-//             ],
-//           )
