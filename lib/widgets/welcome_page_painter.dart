@@ -13,6 +13,7 @@ class WelcomePagePainter extends CustomPainter {
     final center = Offset(10, 50);
     final center1 = Offset(50, 169);
     final center2 = Offset(size.width - 100, 90);
+    final center3 = Offset(160, 295);
     final semicircleCenter1 = Offset(size.width - 30, 290);
     final semicircleCenter2 = Offset(size.width - 30, 240);
     final semicircleCenter3 = Offset(30, 419);
@@ -28,6 +29,7 @@ class WelcomePagePainter extends CustomPainter {
     canvas.drawCircle(center, 120, paint);
     canvas.drawCircle(center1, 6, paint1);
     canvas.drawCircle(center2, 25, paint1);
+    canvas.drawCircle(center3, 25, paint);
     canvas.drawLine(p1, p2, paint1);
     canvas.drawLine(p3, p4, paint1);
     canvas.drawLine(p5, p6, paint1);

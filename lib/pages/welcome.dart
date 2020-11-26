@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:movieda/authentication/twitterauth.dart';
 import 'package:movieda/pages/homepage.dart';
 import 'package:movieda/widgets/welcome_page_painter.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -108,11 +109,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                         onTapped: () =>
                             Navigator.push(context, MaterialPageRoute(
                           builder: (context) {
-                            return GoogleLoginHandler();
+                            return
+                                // GoogleLoginHandler();
+                                TwitterLoginHandler();
                           },
                         )),
                         imageLocation: 'images/glogo.png',
-                        loginOption: 'Continue with Google',
+                        loginOption: 'Continue with Twitter',
                       ),
                       SizedBox(
                         height: 20,
@@ -125,7 +128,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                           },
                         )),
                         imageLocation: 'images/glogo.png',
-                        loginOption: 'Continue with Google',
+                        loginOption: 'Continue with Facebook',
                       ),
                       SizedBox(
                         height: 10,

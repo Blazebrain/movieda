@@ -1,42 +1,31 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_twitter_login/flutter_twitter_login.dart';
 // import 'package:fluttertoast/fluttertoast.dart';
-import 'package:google_sign_in/google_sign_in.dart';
+import 'package:movieda/pages/homepage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import '../pages/homepage.dart';
-import '../widgets/loading.dart';
 
-class GoogleLoginHandler extends StatefulWidget {
+class TwitterLoginHandler extends StatefulWidget {
   @override
-  _GoogleLoginHandlerState createState() => _GoogleLoginHandlerState();
+  _TwitterLoginHandlerState createState() => _TwitterLoginHandlerState();
 }
 
-class _GoogleLoginHandlerState extends State<GoogleLoginHandler> {
-  GoogleSignIn googleSignIn = GoogleSignIn();
-  FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+class _TwitterLoginHandlerState extends State<TwitterLoginHandler> {
+  FirebaseAuth _auth = FirebaseAuth.instance;
   FirebaseFirestore firestore = FirebaseFirestore.instance;
-  bool isLoading = true;
-  bool isLoggedIn = false;
-  User currentUser;
   SharedPreferences prefs;
-  @override
-  void initState() {
-    super.initState();
-    handleSignIn();
-  }
+  User currentUser;
+  final TwitterLogin twitterLogin = TwitterLogin(
+    consumerKey: 'jURtFYp8MWkVbG99E85GBRodJ',
+    consumerSecret: 'NeaDmpin8N3nXScdJrXbLYe2HTM1QZFvGFSPjnVl3WS4SIvJ77',
+  );
 
-  handleSignIn() async {
+  void _signInWithTwitter(String token, String secret) async {
     prefs = await SharedPreferences.getInstance();
-    GoogleSignInAccount googleUser = await googleSignIn.signIn();
-    GoogleSignInAuthentication googleAuth = await googleUser.authentication;
-    GoogleAuthCredential credential = GoogleAuthProvider.credential(
-      idToken: googleAuth.idToken,
-      accessToken: googleAuth.accessToken,
-    );
-    User firebaseUser =
-        (await firebaseAuth.signInWithCredential(credential)).user;
-
+    final AuthCredential credential =
+        TwitterAuthProvider.credential(accessToken: token, secret: secret);
+    User firebaseUser = (await _auth.signInWithCredential(credential)).user;
     if (firebaseUser != null) {
       QuerySnapshot results = await firestore
           .collection('users')
@@ -70,9 +59,7 @@ class _GoogleLoginHandlerState extends State<GoogleLoginHandler> {
       //   textColor: Colors.white,
       //   toastLength: Toast.LENGTH_LONG,
       // );
-      setState(() {
-        isLoading = false;
-      });
+
       Navigator.push(context, MaterialPageRoute(builder: (context) {
         return MovieApp(
           nickName: prefs.getString('nickName'),
@@ -85,8 +72,44 @@ class _GoogleLoginHandlerState extends State<GoogleLoginHandler> {
     }
   }
 
+  void _login() async {
+    final TwitterLoginResult result = await twitterLogin.authorize();
+    String newMessage;
+    if (result.status == TwitterLoginStatus.loggedIn) {
+      _signInWithTwitter(result.session.token, result.session.secret);
+      // Navigator.push(
+      //   context,
+      //   MaterialPageRoute(
+      //     builder: (context) {
+      //       return MovieApp();
+      //     },
+      //   ),
+      // );
+
+      print('signed In');
+    } else if (result.status == TwitterLoginStatus.cancelledByUser) {
+      newMessage = 'Login cancelled by user.';
+    } else {
+      newMessage = result.errorMessage;
+    }
+    //  setState(() {
+    //   message = newMessage;
+    // });
+  }
+
+  void _logout() async {
+    await twitterLogin.logOut();
+    await _auth.signOut();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _login();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return isLoading ? Loading() : Container();
+    return Container();
   }
 }
